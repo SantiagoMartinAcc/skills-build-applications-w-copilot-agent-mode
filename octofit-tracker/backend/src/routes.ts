@@ -4,15 +4,9 @@ import Team from './models/team';
 import Activity from './models/activity';
 import LeaderboardEntry from './models/leaderboard';
 import Workout from './models/workout';
+import { getApiBaseUrl } from './server';
 
 const router = Router();
-
-const getApiBaseUrl = () => {
-  const codespaceName = process.env.CODESPACE_NAME;
-  return codespaceName
-    ? `https://${codespaceName}-8000.app.github.dev`
-    : 'http://localhost:8000';
-};
 
 router.get('/api/health', (_req, res) => {
   const apiBaseUrl = getApiBaseUrl();
